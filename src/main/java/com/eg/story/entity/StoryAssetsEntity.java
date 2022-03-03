@@ -1,0 +1,39 @@
+package com.eg.story.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "T_STORY_ASSETS")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class StoryAssetsEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", updatable = false)
+	private Long id;
+	
+	@Column(name = "STORY_ID", updatable = false)
+	private Long storyId;
+	
+	@Column(name = "PAGE_NUMBER", nullable = false)
+	private String pageNumber;
+	
+	@Column(name = "IMAGE_URL", nullable = false)
+	private String imageURL;
+	
+	@Column(name = "SOUND_URL", nullable = false)
+	private String soundUrl;
+}
